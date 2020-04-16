@@ -3,13 +3,6 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
-;HotKey CTRL + J escreve o texto 'My First Script'
-;^j::
-;Send, My First Script
-;HotString fwt + TAB escreve o texto 'Free the whales'
-::cddev::cd C:\Users\fcane\Documents\GitHub{Enter}
-return
-
 ^+g::
 {
     Send, ^c
