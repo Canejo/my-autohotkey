@@ -1,5 +1,5 @@
 # Hotkey
 
-- Ctrl + Shift + g -> Pesquisar no google último termo copiado
+- Ctrl + Shift + g -> Pesquisar texto selecionado no google
 - Ctrl + Shift + u -> Uppercase
 - Ctrl + u -> Lowercase

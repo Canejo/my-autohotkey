@@ -3,14 +3,6 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
-^+g::
-{
-    Send, ^c
-    Sleep 75
-    Run, http://www.google.com/search?q=%clipboard%
-    Return
-}
-
 GetSelectedText() {
     tmp = %ClipboardAll%
     Clipboard := ""
@@ -19,6 +11,13 @@ GetSelectedText() {
     selection = %Clipboard%
     Clipboard = %tmp%
     return selection
+}
+
+^+g::
+{
+    value := GetSelectedText()
+    Run, http://www.google.com/search?q=%value%
+    Return
 }
 
 ^+u::
