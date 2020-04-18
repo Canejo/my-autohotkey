@@ -35,3 +35,24 @@ GetSelectedText() {
     Send, %lowerValue%
     RETURN
 }
+
+^!c::
+{
+    regex := "(Showing results for|Did you mean:|quis dizer:|Exibindo resultados para).*?>(.*?)</a>"
+    value := GetSelectedText()
+    UrlDownloadToFile % "https://www.google.com.br/search?q=" . value, temp
+    FileRead, contents, temp
+    FileDelete temp
+
+
+    if (RegExMatch(contents, regex, match)) {
+        StringReplace, clipboard, match2, <b><i>,, All
+        StringReplace, clipboard, clipboard, </i></b>,, All
+        Send ^v
+    } else {
+        Send {Right}
+    }
+    Sleep 500
+    Clipboard:=
+    return
+}
